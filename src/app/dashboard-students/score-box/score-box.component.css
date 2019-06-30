@@ -1,0 +1,22 @@
+.img-box-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.score-image {
+    width: 100px;
+    height: 100px;
+}
+
+.text-title-score-box {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.score-result {
+    font-size: 40px;
+}

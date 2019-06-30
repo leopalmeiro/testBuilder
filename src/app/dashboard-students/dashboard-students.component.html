@@ -1,0 +1,44 @@
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <header>
+                <nav>
+                    <img src="assets/images/logo.png" alt="logo" class="logo-top">
+                    <label for="" class="menu-title">M.U.A English Center</label>
+                    <div class="button-logout">
+                        <button type="button" class="btn btn-outline-light" (click)="logout()">Logout</button>
+                    </div>
+                </nav>
+                <div class="title-home-student">
+                    <h1 class="welcome-student">Welcome</h1>
+                    <h2 class="user-student">{{ authservice.userLogged.user }}</h2>
+                </div>
+            </header>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+                <app-score-box></app-score-box>
+
+
+            </div>
+
+            <div class="col-md-10">
+                <div class="main-content active-scroll-vertical">
+                    <div *ngIf="activedDashboard">
+                        <app-test-content></app-test-content>
+                    </div>
+                    <div *ngIf="activedTest">
+                        <app-tests></app-tests>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <router-outlet></router-outlet>
+</body>

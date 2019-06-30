@@ -1,0 +1,104 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+.box-login {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    /*opacity: 0.8;*/
+    /* aligh in the center */
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+body {
+    background-image: url("../../assets/images/background-login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.align-center {
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+
+/* enable absolute positioning */
+
+.inner-addon {
+    position: relative;
+}
+
+
+/* style fa */
+
+.inner-addon .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+
+/* align glyph */
+
+.left-addon .fa {
+    left: 0px;
+}
+
+.right-addon .fa {
+    right: 0px;
+}
+
+
+/* add padding  */
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.fa-color-gray {
+    color: #7f8c8d;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+    margin-left: 15px;
+}
+
+.btn {
+    background-color: #0f2c3e;
+    color: #ffffff;
+}
+
+.btn-login {
+    margin-top: 30px;
+}
+
+.password-content {
+    margin-top: 20px;
+}
+
+.row {
+    margin-top: 30px;
+}
+
+label,
+h1,
+h2 {
+    font-family: 'Lato', sans-serif;
+    color: #0f2c3e;
+}
