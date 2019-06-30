@@ -20,16 +20,20 @@
 
         <div class="row">
             <div class="col-md-2">
-
-                <app-score-box></app-score-box>
+                <div *ngIf="activedScore">
+                    <!--                 <app-score-box [countTestsGrammarCompleted]="countTestsGrammarCompleted" [countTestsListeningCompleted]="countTestsListeningCompleted"></app-score-box>
+ -->
+                    <app-score-box (testbyId)="onOpenTestById($event)"></app-score-box>
+                </div>
 
 
             </div>
 
             <div class="col-md-10">
                 <div class="main-content active-scroll-vertical">
-                    <div *ngIf="activedDashboard">
-                        <app-test-content></app-test-content>
+                    <div *ngIf="activedTestContent">
+                        <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content>
+                        <!--   <app-test-content [listTestUserGrammar]="listTestUserGrammar" [listTestUserListening]="listTestUserListening"></app-test-content> -->
                     </div>
                     <div *ngIf="activedTest">
                         <app-tests></app-tests>

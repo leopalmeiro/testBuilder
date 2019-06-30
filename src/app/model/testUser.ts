@@ -5,4 +5,6 @@ export class TestUser{
     status: string;
     type: string;
     user: string;
+    imageType : string;
+    imageBase64 : string;
 }

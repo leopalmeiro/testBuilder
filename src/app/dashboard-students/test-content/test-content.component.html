@@ -2,158 +2,42 @@
 <div class="grammar-test-section container-fluid">
     <label for="" class="title-section-test">Grammar Test</label>
     <div class="row grammar-test-itens-container">
-
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
+        <div *ngFor="let grammarTest of listGrammar">
+            <!-- item 01 -->
+            <div class="col-md-2 grow">
+                <div class="icon-test-container">
+                    <div class="img-icon-test-container">
+                        <!--                         <img class="icon-test-image" [src]="'data:image/jpg;base64,'+imagePath" alt="Test 01"> -->
+                        <img class="icon-test-image" src="data:image/{{grammarTest.imageType}};base64,{{grammarTest.imageBase64}}" alt="Test 01">
+                    </div>
+                    <label for="" class="title-icon-test">{{grammarTest.title}}</label>
+                    <label for="" class="stitle-icon-test">{{grammarTest.subtitle}}</label>
+                    <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
                 </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
 
-        </div>
-        <!-- item 02 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
             </div>
 
         </div>
     </div>
-
 </div>
 <div class="grammar-test-section container-fluid">
     <label for="" class="title-section-test">Listening Test</label>
     <div class="row grammar-test-itens-container">
-
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
+        <div *ngFor="let listeningTest of listListening">
+            <!-- item 01 -->
+            <div class="col-md-2 grow">
+                <div class="icon-test-container">
+                    <div class="img-icon-test-container">
+                        <!--                         <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01"> -->
+                        <img class="icon-test-image" src="data:image/{{listeningTest.imageType}};base64,{{listeningTest.imageBase64}}" alt="Test 01">
+                    </div>
+                    <label class="title-icon-test">{{listeningTest.title}}</label>
+                    <label class="stitle-icon-test">{{listeningTest.subtitle}}</label>
+                    <button type="button" class="btn btn-primary btn-lg btn-block btn-square" (click)="openTestById(listeningTest._id)">ACCESS</button>
                 </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
 
-        </div>
-        <!-- item 02 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
-            </div>
-
-        </div>
-        <!-- item 01 -->
-        <div class="col-md-2 grow">
-            <div class="icon-test-container">
-                <div class="img-icon-test-container">
-                    <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01">
-                </div>
-                <label for="" class="title-icon-test">Unit 01</label>
-                <label for="" class="stitle-icon-test">Animals</label>
-                <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square">ACCESS</button>
             </div>
 
         </div>
     </div>
-
 </div>

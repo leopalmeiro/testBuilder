@@ -9,9 +9,12 @@ export class TestsComponent implements OnInit {
   
   radioQuestion: boolean = false;
 
-  constructor() { }
+  constructor() { 
+    console.log("chamou TestsComponent");
+  }
 
   ngOnInit() {
+    console.log("chamou TestsComponent -> ngOnInit");
   }
 
 }

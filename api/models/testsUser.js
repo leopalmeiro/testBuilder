@@ -20,6 +20,12 @@ let testsUser = new Schema({
     },
     user: {
         type: String
+    },
+    imageType: {
+        type: String
+    },
+    imageBase64: {
+        type: String
     }
 }, {
     collection: 'testsUser'

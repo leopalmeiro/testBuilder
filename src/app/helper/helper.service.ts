@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { TestUser } from '../model/testUser';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +35,15 @@ export class HelperService {
   public headerName : string = 'Accept';
   public headerType : string = 'application/json';
 
+  //configuration testes
+  public typeTestGrammar : string = 'grammar';
+  public typeTestListening : string = 'listening';
+  public statusTestCompleted : string = 'completed'; 
+  public statusTestAvailable : string = 'available'; 
+
+  //global information about tests
+  public testsbyUser : TestUser[] = [];
+
 
 
 
@@ -40,5 +51,5 @@ export class HelperService {
 
  
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }
