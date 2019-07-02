@@ -1,3 +1,5 @@
+import { Question } from './question';
+
 export class TestUser{
     _id: string;
     title: string;
@@ -7,4 +9,6 @@ export class TestUser{
     user: string;
     imageType : string;
     imageBase64 : string;
+    questions : Question [];
 }
+

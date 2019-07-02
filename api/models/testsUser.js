@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // define collection and schema for product
 let testsUser = new Schema({
     _id: {
-        type: String
+        type: Schema.Types.ObjectId
     },
     title: {
         type: String
@@ -26,7 +26,50 @@ let testsUser = new Schema({
     },
     imageBase64: {
         type: String
-    }
+    },
+    questions: {
+        questionsId: {
+            type: Number
+        },
+        questionText: {
+            type: String
+        },
+        order: {
+            type: Number
+        },
+        imageType: {
+            type: String
+        },
+
+        imageBase64: {
+            type: String
+        },
+        audioType: {
+            type: String
+        },
+        audioBase64: {
+            type: String
+        },
+        isAnswered: {
+            type: Boolean
+        },
+        answers: {
+            answerId: {
+                type: Number
+            },
+            answer: {
+                type: String
+            },
+            isCorrect: {
+                type: Boolean
+            },
+            isSelected: {
+                type: Boolean
+            }
+
+        },
+
+    },
 }, {
     collection: 'testsUser'
 });

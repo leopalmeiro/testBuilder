@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TestUser } from '../model/testUser';
+import { TestUser } from '../model/test';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -23,13 +23,17 @@ export class HelperService {
   /* Test Section */
   //call tests methods API
   public apiUriTests : string = this.apiUri + '/test/';
-  //call tests methods API
+  //call tests byUser API
   public apiUriTestsTestUser : string = this.apiUriTests + 'testUser/';
+   //call test byID methods API
+   public apiUriTestsTestById : string = this.apiUriTests + 'testUserById/';
 
   //login request params
   public userReqParam : string = 'user';
   public passReqParam : string = 'pass';
 
+  //test request params
+  public idReqParam : string = '_id';
 
   //header JSON
   public headerName : string = 'Accept';
@@ -43,6 +47,7 @@ export class HelperService {
 
   //global information about tests
   public testsbyUser : TestUser[] = [];
+  public idTest : string;
 
 
 

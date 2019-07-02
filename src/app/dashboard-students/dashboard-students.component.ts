@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {  Router } from '@angular/router';
 import { Login } from '../model/login';
 import { AuthService } from '../login/auth.service';
-import { TestUser } from '../model/testUser';
+import { TestUser } from '../model/test';
 import { TestService } from '../services/test.service';
 import { HelperService } from '../helper/helper.service';
 
@@ -13,12 +13,14 @@ import { HelperService } from '../helper/helper.service';
 })
 export class DashboardStudentsComponent implements OnInit {
   
-  //always dashboard will be actived components
+  //config dashboard; always dashboard will be actived components
   activedTestContent : boolean = false;
   activedTest: boolean = false;
   activedScore: boolean = false;
+   
+  //new testUserObject
+  userTest: TestUser = new TestUser();
 
-  private userTest: TestUser = new TestUser();
 
   //configuration of lists and counts
   listTestUserGrammar: TestUser[] = [];
@@ -49,29 +51,9 @@ export class DashboardStudentsComponent implements OnInit {
     this.testService.testUser(this.userTest).subscribe(data => {
 
       if (data) {
-        console.log("entrou no if data" + data.length);
+        // save tests in the helper
         this.helper.testsbyUser = data;
- /*        for (let index = 0; index < data.length; index++) {
-          let type = data[index].type;
-          let typestatus = data[index].status;
-          //
-          this.helper.testsbyUser = data;
-          //verification for set data for use in the child components
-          if (type == "grammar" &&  typestatus == "completed") {
-            this.countTestsGrammarCompleted ++;
-          }
-          if(type == "grammar" &&  typestatus !== "completed"){
-            this.listTestUserGrammar.push(data[index]);
-          }
-          //verification for set data for use in the child components
-          if (type == "listening" &&  typestatus == "completed") {
-            this.countTestsListeningCompleted ++;
-          }
-          if(type == "listening" &&  typestatus !== "completed"){
-            this.listTestUserListening.push(data[index]);
-          }
-        }
-      } */
+        console.log(JSON.stringify(data));
     }
       //activeted components
       this.activedTestContent = true;
@@ -83,13 +65,16 @@ export class DashboardStudentsComponent implements OnInit {
       });
   } 
 
-/*   openTestsByid(){
-    console.log("OPEN TEST BY ID" );
-  } */
+/* method open test by ID */
   onOpenTestById(data){
-    console.log("ID DO FILHO" + data);
+    // find ttests by id
+    //actived components
+    this.helper.idTest = data;
+ 
+    this.activedTest = true;
     this.activedTestContent = false;
-    this.activedTest = true; 
+
+
 
     
   }

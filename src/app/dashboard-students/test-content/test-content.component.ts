@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TestUser } from 'src/app/model/testUser';
+import { TestUser } from 'src/app/model/test';
 import { AuthService } from 'src/app/login/auth.service';
 import { TestService } from 'src/app/services/test.service';
 import { HelperService } from 'src/app/helper/helper.service';
