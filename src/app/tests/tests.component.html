@@ -1,46 +1,29 @@
 <h2 class="title-content">{{test.title}}</h2>
 <div class="container">
-    <div class="row" *ngFor="let question of test.questions">
-        <div class="question-item">
-            <label for="" class="questions-text">{{question.questionText}}</label>
-            <div class="radio-group-itens">
-                <div class="input-radio-item " *ngFor="let answer of question.answers">
-                    <input type="radio" name="question-01-radio" value="{{answer.answerId}}">
-                    <label for="" class="questions-radio-text">{{answer.answer}}</label>
-                </div>
-                <!--   <div class="input-radio-item ">
-                    <input type="radio" name="question-01-radio" value="2">
-                    <label for="" class="questions-radio-text">2</label>
-                </div>
-                <div class="input-radio-item ">
-                    <input type="radio" name="question-01-radio" value="3">
-                    <label for="" class="questions-radio-text">3</label>
-                </div> -->
+    <div class="row" *ngFor="let question of test.questions; let q = index">
+        car
+        <div class="col-md-6">
+            <div *ngIf="question.imageType !== ''">
+                image
             </div>
+            <div *ngIf="question.audioType !== ''">
+                audio
+            </div>
+            <label class="questions-text">  {{question.questionsId}}. {{question.questionText}}</label>
+
+            <div *ngFor="let answer of question.answers ; let a = index">
+
+                <div class="custom-control custom-radio" [ngClass]="(!answer.isSelected)?'input-radio-item':'input-radio-item-selected'" (click)="selectAnswer($event, q, a)">
+
+                    <input type="radio" id="answer{{answer.answerId}}-{{question.questionsId}}" [checked]="answer.isSelected" name="answerRadio{{question.questionsId}}" value="{{answer.answerId}}" class="custom-control-input">
+                    <label class="custom-control-label questions-radio-text" for="answer{{answer.answerId}}-{{question.questionsId}}">{{answer.answer}}</label>
+                </div>
+            </div>
+
+
         </div>
     </div>
-    <!--   <div class="row">
-        <div class="question-item">
-            <label for="" class="questions-text">1. How many people are there in your family ?</label>
-            <div class="radio-group-itens">
-                <div class="input-radio-item ">
-                    <input type="radio" name="question-01-radio" value="1">
-                    <label for="" class="questions-radio-text">1</label>
-                </div>
-                <div class="input-radio-item ">
-                    <input type="radio" name="question-01-radio" value="2">
-                    <label for="" class="questions-radio-text">2</label>
-                </div>
-                <div class="input-radio-item ">
-                    <input type="radio" name="question-01-radio" value="3">
-                    <label for="" class="questions-radio-text">3</label>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
     <div class="row">
         <button type="button" name="" id="" class="btn btn-primary btn-lg ">FINISH THE TEST</button>
     </div>
-
 </div>

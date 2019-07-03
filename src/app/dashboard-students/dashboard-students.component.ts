@@ -71,8 +71,9 @@ export class DashboardStudentsComponent implements OnInit {
     //actived components
     this.helper.idTest = data;
  
-    this.activedTest = true;
+  
     this.activedTestContent = false;
+      this.activedTest = true;
 
 
 

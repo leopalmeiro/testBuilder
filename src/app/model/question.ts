@@ -4,7 +4,7 @@ export class Question {
     questionsId: number;
     questionText: string;
     order: number;
-    imageType: string
+    imageType: string;
     imageBase64: string;
     audioType: string;
     audioBase64: string;

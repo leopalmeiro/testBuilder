@@ -16,6 +16,11 @@
     border-radius: 10px;
 }
 
+.input-radio-item-selected {
+    background-color: #34db7f4b;
+    border-radius: 10px;
+}
+
 input[type="radio"] {
     width: 20px;
     height: 20px;
@@ -24,7 +29,6 @@ input[type="radio"] {
 }
 
 .question-item {
-    display: block;
     margin: 10px;
 }
 
