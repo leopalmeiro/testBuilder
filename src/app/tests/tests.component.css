@@ -6,19 +6,30 @@
     letter-spacing: 2px;
 }
 
+.input-radio-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .input-radio-item:hover {
     background-color: #3498db4b;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 .input-radio-item:active {
     background-color: #3498dbf5;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 .input-radio-item-selected {
-    background-color: #34db7f4b;
+    background-color: #a634db4b;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 input[type="radio"] {
@@ -28,10 +39,20 @@ input[type="radio"] {
     margin-left: 5px;
 }
 
-.question-item {
-    margin: 10px;
-}
-
 .questions-radio-text {
     margin-left: 10px;
+}
+
+.questions-row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-color: #52525265;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin: 10px;
 }

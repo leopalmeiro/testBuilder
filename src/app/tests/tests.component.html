@@ -1,7 +1,6 @@
 <h2 class="title-content">{{test.title}}</h2>
 <div class="container">
-    <div class="row" *ngFor="let question of test.questions; let q = index">
-        car
+    <div class="row questions-row" *ngFor="let question of test.questions  | slice:startItem:endItem">
         <div class="col-md-6">
             <div *ngIf="question.imageType !== ''">
                 image
@@ -13,17 +12,29 @@
 
             <div *ngFor="let answer of question.answers ; let a = index">
 
-                <div class="custom-control custom-radio" [ngClass]="(!answer.isSelected)?'input-radio-item':'input-radio-item-selected'" (click)="selectAnswer($event, q, a)">
+                <div class="custom-control custom-radio" [ngClass]="(!answer.isSelected)?'input-radio-item':'input-radio-item-selected'" (click)="selectAnswer($event,question.questionIndex, answer.answerIndex)">
 
-                    <input type="radio" id="answer{{answer.answerId}}-{{question.questionsId}}" [checked]="answer.isSelected" name="answerRadio{{question.questionsId}}" value="{{answer.answerId}}" class="custom-control-input">
-                    <label class="custom-control-label questions-radio-text" for="answer{{answer.answerId}}-{{question.questionsId}}">{{answer.answer}}</label>
+                    <input type="radio" [checked]="answer.isSelected" class="custom-control-input">
+                    <label class="custom-control-label questions-radio-text">{{answer.answer}}</label>
                 </div>
             </div>
 
 
         </div>
     </div>
+
+
     <div class="row">
-        <button type="button" name="" id="" class="btn btn-primary btn-lg ">FINISH THE TEST</button>
+        <div class="col-md-6">
+
+            <button type="button" [disabled]="!showPreviewButton" class="btn btn-primary btn-lg" (click)="onChangePage('preview' , startItem , endItem )">PREVIEW</button>
+
+            <button type="button" [disabled]="!showNextButton" class="btn btn-primary btn-lg " (click)="onChangePage('next' , startItem , endItem )">NEXT</button>
+
+
+        </div>
+        <div class="col-md-6 text-right ">
+
+            <button type="button" class="btn btn-success btn-lg text-right " (click)="saveTestUser()">FINISH THE TEST</button>
+        </div>
     </div>
-</div>

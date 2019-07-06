@@ -4,5 +4,6 @@ export class Answer {
         answer: string;
         isCorrect: boolean;
         isSelected: boolean;
+        answerIndex: number;
 
 }

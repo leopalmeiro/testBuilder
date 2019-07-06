@@ -49,6 +49,10 @@ export class HelperService {
   public testsbyUser : TestUser[] = [];
   public idTest : string;
 
+  //global configuration pagination
+  //questios students
+  public totQuestionsStudentPagination : number = 2;
+
 
 
 

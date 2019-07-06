@@ -15,6 +15,7 @@ import { TestContentComponent } from './dashboard-students/test-content/test-con
 import { TestsComponent } from './tests/tests.component';
 import { HelperService } from './helper/helper.service';
 import { TestService } from './services/test.service';
+/* import { PaginationModule } from 'ngx-bootstrap/pagination'; */
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { TestService } from './services/test.service';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
+/*     PaginationModule.forRoot() */
   ],
   providers: [
     AuthService,

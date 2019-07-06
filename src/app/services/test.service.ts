@@ -45,7 +45,7 @@ export class TestService {
       return this.http.get<TestUser>(this.helper.apiUriTestsTestById, {
         /* headers: httpHeaders, */
         params: params
-      })
+      });
     }
   
 
