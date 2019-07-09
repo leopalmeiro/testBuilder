@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
 
           this.login = data;
           if (this.login.type === 'student'){
-                this.authService.userLogged = this.login;  
-                this.router.navigate(['dashboard-students']);     
+                /* this.authService.userLogged = this.login;   */
+                this.router.navigate(['dashboardstudents']);     
           }
         } 
       },

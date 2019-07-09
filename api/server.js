@@ -17,7 +17,8 @@ mongoose.connect(config.db, { useNewUrlParser: true }).then(
 );
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 1000000 }));
 app.use(cors());
 
 //define Login service

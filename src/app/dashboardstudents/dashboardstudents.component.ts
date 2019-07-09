@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, NgModule ,Input } from '@angular/core';
 import {  Router } from '@angular/router';
 import { Login } from '../model/login';
 import { AuthService } from '../login/auth.service';
@@ -8,8 +8,8 @@ import { HelperService } from '../helper/helper.service';
 
 @Component({
   selector: 'app-dashboard-students',
-  templateUrl: './dashboard-students.component.html',
-  styleUrls: ['./dashboard-students.component.css']
+  templateUrl: './dashboardstudents.component.html',
+  styleUrls: ['./dashboardstudents.component.css']
 })
 export class DashboardStudentsComponent implements OnInit {
   
@@ -28,36 +28,40 @@ export class DashboardStudentsComponent implements OnInit {
   countTestsGrammarCompleted: number = 0;
   countTestsListeningCompleted: number = 0;
 
+  testId : number = 0;
+
+
   
   constructor( private authservice: AuthService, private router: Router, private testService: TestService, private helper: HelperService) { 
     console.log("dashboard constructor");
-    this.getTestsByUser();
+
 
   }
 
   ngOnInit() {
-    
+    this.getTestsByUser();
   }
 
   logout(){
-    this.authservice.userLogged = new Login;
+    this.authservice.logout();
     this.router.navigate(["login"]);
 
   }
 
   getTestsByUser(){
     console.log("getTestsByUser");
-    this.userTest.user = this.authservice.userLogged._id;
+    this.userTest.user = this.authservice.currentUserValue._id;
     this.testService.testUser(this.userTest).subscribe(data => {
 
       if (data) {
         // save tests in the helper
         this.helper.testsbyUser = data;
-        console.log(JSON.stringify(data));
-    }
-      //activeted components
+        /* console.log(JSON.stringify(data)); */
+              //activeted components
       this.activedTestContent = true;
-      this.activedScore = true;
+      this.activedScore = true; 
+    }
+
     },
       error => {
         alert('error: ' + error);
@@ -69,14 +73,17 @@ export class DashboardStudentsComponent implements OnInit {
   onOpenTestById(data){
     // find ttests by id
     //actived components
-    this.helper.idTest = data;
+    this.testId = data;
  
-  
+    //activeted components
     this.activedTestContent = false;
-      this.activedTest = true;
-
-
-
-    
+    this.activedTest = true;
+ 
   }
+  onReloadComponets(){
+        //activeted components
+        this.activedTestContent = true;
+        this.activedTest = false;
+  }
+
 }

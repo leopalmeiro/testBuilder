@@ -6,8 +6,8 @@ import { HelperService } from 'src/app/helper/helper.service';
 
 @Component({
   selector: 'app-score-box',
-  templateUrl: './score-box.component.html',
-  styleUrls: ['./score-box.component.css']
+  templateUrl: './scorebox.component.html',
+  styleUrls: ['./scorebox.component.css']
 })
 export class ScoreBoxComponent implements OnInit {
 
@@ -24,20 +24,21 @@ export class ScoreBoxComponent implements OnInit {
   countGrammar : number = 0;
   countListening : number = 0;
 
-  constructor(private authservice: AuthService, private helper : HelperService) {
+  constructor(private authservice: AuthService, private helper : HelperService, ) {
     console.log('chamou score -->d');
     //this.getCountTests();
-    this.getTests();
+ 
   }
  
 
   ngOnInit() {
-
+    this.getTests();
   }
 
 
   //method for get count test
-  getTests() : void{
+  getTests(){
+
     this.listTests = this.helper.testsbyUser;
     for (let index = 0; index < this.listTests.length; index++) {
         let type = this.listTests[index].type;

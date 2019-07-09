@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScoreBoxComponent } from './score-box.component';
+import { ScoreBoxComponent } from './scorebox.component';
 
 describe('ScoreBoxComponent', () => {
   let component: ScoreBoxComponent;

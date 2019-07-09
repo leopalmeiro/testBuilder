@@ -13,36 +13,45 @@
                 </nav>
                 <div class="title-home-student">
                     <h1 class="welcome-student">Welcome</h1>
-                    <h2 class="user-student">{{ authservice.userLogged.user }}</h2>
+                    <h2 class="user-student">{{ this.authservice.currentUserValue.user }}</h2>
                 </div>
             </header>
         </div>
 
         <div class="row">
             <div class="col-md-2">
-                <div *ngIf="activedScore">
+                <div class="score-box">
+                    <ng-container *ngIf="activedScore">
+                        <app-score-box></app-score-box>
+                    </ng-container>
+
+                    <!--       <div *ngIf="activedScore"> -->
                     <!--                 <app-score-box [countTestsGrammarCompleted]="countTestsGrammarCompleted" [countTestsListeningCompleted]="countTestsListeningCompleted"></app-score-box>
  -->
-                    <app-score-box></app-score-box>
-                </div>
 
+                    <!--                     <app-score-box></app-score-box> -->
+                    <!--                 </div> -->
+                </div>
 
             </div>
 
             <div class="col-md-10">
                 <div class="main-content active-scroll-vertical">
-                    <div *ngIf="activedTestContent">
+                    <ng-container *ngIf="activedTestContent">
+
                         <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content>
-                        <!--   <app-test-content [listTestUserGrammar]="listTestUserGrammar" [listTestUserListening]="listTestUserListening"></app-test-content> -->
-                    </div>
-                    <div *ngIf="activedTest">
-                        <app-tests></app-tests>
-                    </div>
+
+                    </ng-container>
+                    <ng-container *ngIf="activedTest">
+                        <app-tests (loadDashBoardStudent)="onReloadComponets()" [testId]="testId"></app-tests>
+
+                    </ng-container>
+
                 </div>
             </div>
 
         </div>
 
     </div>
-    <router-outlet></router-outlet>
+
 </body>

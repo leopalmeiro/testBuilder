@@ -10,11 +10,12 @@ import { TestUser } from '../model/test';
 })
 export class TestService {
 
+
   constructor(private http: HttpClient, private helper: HelperService, private authService: AuthService) { }
 
   //method for find all tests by students
-  public testUser(testUser: TestUser): Observable<TestUser[]>{
-    
+  public testUser(testUser: TestUser): Observable<TestUser[]> {
+
     let httpHeaders = new HttpHeaders()
       .set(this.helper.headerName, this.helper.headerType);
     let params = new HttpParams()
@@ -30,24 +31,45 @@ export class TestService {
     })
   }
 
-    //method for find test byID
-    public getTestById(id: string): Observable<TestUser>{
-    
-/*       let httpHeaders = new HttpHeaders()
-        .set(this.helper.headerName, this.helper.headerType); */
-      let params = new HttpParams()
-        .set(this.helper.idReqParam, id);
-  
-  
-      console.log('paramnssss --> ' + params.toString());
-  
-  
-      return this.http.get<TestUser>(this.helper.apiUriTestsTestById, {
-        /* headers: httpHeaders, */
-        params: params
-      });
-    }
-  
+  //method for find test byID
+  public getTestById(id: string): Observable<TestUser> {
 
- 
+    /*       let httpHeaders = new HttpHeaders()
+            .set(this.helper.headerName, this.helper.headerType); */
+    let params = new HttpParams()
+      .set(this.helper.idReqParam, id);
+
+
+    console.log('paramnssss --> ' + params.toString());
+
+
+    return this.http.get<TestUser>(this.helper.apiUriTestsTestById, {
+      /* headers: httpHeaders, */
+      params: params
+    });
+  }
+
+
+  //method for find test byID
+  public updateTestByID(testUser: TestUser): Observable<TestUser> {
+    let httpHeaders = {
+      headers: new HttpHeaders()
+        .set(this.helper.headerName, this.helper.headerType)
+    };
+    /*                 let params = new HttpParams()
+                      .set(this.helper.idReqParam, testUser); */
+
+
+    /*                 console.log('paramnssss --> ' + params.toString()); */
+
+
+    return this.http.post<TestUser>(this.helper.apiUriTestsUpdateTestByID, testUser, httpHeaders);
+
+    /* headers: httpHeaders, 
+    params: params*/
+
+  }
+
+
+
 }

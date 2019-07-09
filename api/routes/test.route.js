@@ -9,7 +9,7 @@ let TestsUser = require('../models/testsUser');
 
 
 
-//method for find tests byUser
+//method for find all tests byUser
 testRoutes.route('/testUser/').get(function(req, res) {
     console.log(req.query);
     let test = new TestsUser(req.query);
@@ -25,13 +25,12 @@ testRoutes.route('/testUser/').get(function(req, res) {
         });
 });
 
-//method for find tests by ID
+//method for find test by ID
 testRoutes.route('/testUserById/').get(function(req, res) {
     console.log(req.query);
-
-    let test = req.query;
+    let test = new TestsUser(req.query);
     console.log(test);
-    TestsUser.findById(test,
+    TestsUser.findById(test._id,
         function(err, tests) {
             if (err) {
                 console.log(err);
@@ -42,5 +41,21 @@ testRoutes.route('/testUserById/').get(function(req, res) {
         });
 });
 
+//method for update test by ID
+testRoutes.route('/updateTestByID/').get(function(req, res) {
+    console.log(req.query);
+
+    let test = new TestsUser(req.query);
+
+    TestsUser.findByIdAndUpdate(test._id, test,
+        function(err, tests) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('return-->' + tests);
+                res.json(tests);
+            }
+        });
+});
 
 module.exports = testRoutes;

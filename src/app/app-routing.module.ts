@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { DashboardStudentsComponent } from './dashboard-students/dashboard-students.component';
+
+
 
 const routes: Routes = [
 /*   { path: '', component: HomeComponent, canActivate: [AuthGuard] }, */
   {path:  '', redirectTo:  'login', pathMatch:  'full'},
   {path: 'login', component: LoginComponent },
-  {path: 'dashboard-students', component: DashboardStudentsComponent },
+
+  {path: 'dashboardstudents', loadChildren: () => import('./dashboardstudents/dashboardstudent.module').then(d => d.DashboardStudentsModule)}
+
 ];
 
 @NgModule({

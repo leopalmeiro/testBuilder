@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
 
-import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
-
-import { NavigationCancel,
-  Event,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +8,7 @@ import { NavigationCancel,
 })
 export class AppComponent {
   title = 'testBuilder';
-  constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
+/*   constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
@@ -34,5 +26,5 @@ export class AppComponent {
     if (event instanceof NavigationError) {
       this.loadingBar.stop();
     }
-  }
+  } */
 }
