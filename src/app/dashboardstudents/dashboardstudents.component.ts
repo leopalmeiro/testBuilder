@@ -1,5 +1,5 @@
-import { Component, OnInit, NgModule ,Input } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Component, OnInit, NgModule, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Login } from '../model/login';
 import { AuthService } from '../login/auth.service';
 import { TestUser } from '../model/test';
@@ -12,78 +12,86 @@ import { HelperService } from '../helper/helper.service';
   styleUrls: ['./dashboardstudents.component.css']
 })
 export class DashboardStudentsComponent implements OnInit {
-  
+
   //config dashboard; always dashboard will be actived components
-  activedTestContent : boolean = false;
+  activedTestContent: boolean = false;
   activedTest: boolean = false;
   activedScore: boolean = false;
-   
+
   //new testUserObject
   userTest: TestUser = new TestUser();
 
-
+  testsbyUser : TestUser[] = [];
   //configuration of lists and counts
   listTestUserGrammar: TestUser[] = [];
   listTestUserListening: TestUser[] = [];
   countTestsGrammarCompleted: number = 0;
   countTestsListeningCompleted: number = 0;
 
-  testId : number = 0;
+  testId: number = 0;
 
 
-  
-  constructor( private authservice: AuthService, private router: Router, private testService: TestService, private helper: HelperService) { 
-    console.log("dashboard constructor");
+
+  constructor(private authservice: AuthService, private router: Router, private testService: TestService, private helper: HelperService) {
+    console.log("call constructor -> DashboardStudentsComponent");
 
 
   }
 
   ngOnInit() {
+    console.log("call ngOnInit -> DashboardStudentsComponent");
     this.getTestsByUser();
   }
 
-  logout(){
+  logout() {
+    console.log("call logout -> DashboardStudentsComponent");
     this.authservice.logout();
     this.router.navigate(["login"]);
 
   }
 
-  getTestsByUser(){
-    console.log("getTestsByUser");
+  getTestsByUser() {
+    console.log("call getTestsByUser -> DashboardStudentsComponent");
     this.userTest.user = this.authservice.currentUserValue._id;
     this.testService.testUser(this.userTest).subscribe(data => {
 
       if (data) {
-        // save tests in the helper
-        this.helper.testsbyUser = data;
+
+
+        this.testsbyUser = data;
         /* console.log(JSON.stringify(data)); */
-              //activeted components
-      this.activedTestContent = true;
-      this.activedScore = true; 
-    }
+        this.activedScore = true;
+        this.activedTestContent = true;
+        this.activedTest = false;
+
+      }
 
     },
       error => {
         alert('error: ' + error);
 
       });
-  } 
+  }
 
-/* method open test by ID */
-  onOpenTestById(data){
+  /* method open test by ID */
+  onOpenTestById(data) {
     // find ttests by id
     //actived components
     this.testId = data;
- 
+
     //activeted components
     this.activedTestContent = false;
     this.activedTest = true;
- 
+
   }
-  onReloadComponets(){
-        //activeted components
-        this.activedTestContent = true;
-        this.activedTest = false;
+
+
+  onReloadComponets() {
+    this.activedTestContent = false;
+    this.activedTest = false;
+    this.activedScore = false;
+    this.getTestsByUser();
+
   }
 
 }

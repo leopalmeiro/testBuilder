@@ -58,7 +58,7 @@ export class TestsComponent implements OnInit {
   */
   getTestsById(id) {
     console.log("call method getTestsById");
-    let testUser = new TestUser()
+/*     let testUser = new TestUser() */
     this.testService.getTestById(id).subscribe(data => {
 
       if (data) {
@@ -186,7 +186,8 @@ export class TestsComponent implements OnInit {
 
     for (let index = startItem; index < endItem; index++) {
       if (!this.test.questions[index].isAnswered) {
-        error.push("Question: " + this.test.questions[index].questionsId + " needs to be answered.");
+        let message = "<p> Question: " + this.test.questions[index].questionsId + " needs to be answered.</p>"
+        error.push(message);
       }
     }
     if (error) {
@@ -203,9 +204,9 @@ export class TestsComponent implements OnInit {
     this.testService.updateTestByID(this.test).subscribe(data => {
 
       if (data) {
-        alert("saved"); this.loadDashBoardStudent.emit();
+        alert("Test has been Saved"); this.loadDashBoardStudent.emit();
       } else {
-        alert("erro")
+        alert("error")
       }
 
     });

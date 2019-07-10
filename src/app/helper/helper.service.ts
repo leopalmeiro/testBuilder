@@ -49,7 +49,7 @@ export class HelperService {
   public statusTestAvailable: string = 'available';
 
   //global information about tests
-  public testsbyUser: TestUser[] = [];
+/*   public testsbyUser: TestUser[] = []; */
   public idTest: string;
 
   //global configuration pagination

@@ -9,7 +9,8 @@ export class Question {
     audioType: string;
     audioBase64: string;
     isAnswered: boolean;
-    answers : Answer [];
     questionIndex: number;
+    answers : Answer [];
+
 
 }

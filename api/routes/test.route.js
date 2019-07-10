@@ -42,20 +42,27 @@ testRoutes.route('/testUserById/').get(function(req, res) {
 });
 
 //method for update test by ID
-testRoutes.route('/updateTestByID/').get(function(req, res) {
-    console.log(req.query);
+testRoutes.route('/updateTestByID/').put(function(req, res) {
+    /*     console.log("request body" + JSON.stringify(req.body));
+        console.log("request params" + JSON.stringify(req.params));
+        console.log("request query" + JSON.stringify(req.query)); */
 
-    let test = new TestsUser(req.query);
+    let test = new TestsUser(req.body);
 
-    TestsUser.findByIdAndUpdate(test._id, test,
-        function(err, tests) {
+    console.log("TESTS" + JSON.stringify(test));
+    TestsUser.findByIdAndUpdate(test._id, { $set: test }, { new: true },
+        function(err, data) {
             if (err) {
                 console.log(err);
+                return next(err);
+
             } else {
-                console.log('return-->' + tests);
-                res.json(tests);
+                console.log('return: ok');
+                res.json(data);
             }
         });
 });
+
+
 
 module.exports = testRoutes;

@@ -26,7 +26,7 @@
 }
 
 .input-radio-item-selected {
-    background-color: #c00db74b;
+    background-color: #0d19c04b;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px
@@ -55,4 +55,9 @@ input[type="radio"] {
 
 .btn {
     margin: 10px;
+}
+
+.test-image {
+    width: 400px;
+    height: 400px;
 }

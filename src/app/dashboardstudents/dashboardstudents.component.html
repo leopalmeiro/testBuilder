@@ -22,7 +22,7 @@
             <div class="col-md-2">
                 <div class="score-box">
                     <ng-container *ngIf="activedScore">
-                        <app-score-box></app-score-box>
+                        <app-score-box [testsbyUser]="testsbyUser"></app-score-box>
                     </ng-container>
 
                     <!--       <div *ngIf="activedScore"> -->
@@ -39,7 +39,8 @@
                 <div class="main-content active-scroll-vertical">
                     <ng-container *ngIf="activedTestContent">
 
-                        <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content>
+                        <!--                         <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content> -->
+                        <app-test-content (testbyId)="onOpenTestById($event)" [testsbyUser]="testsbyUser"></app-test-content>
 
                     </ng-container>
                     <ng-container *ngIf="activedTest">

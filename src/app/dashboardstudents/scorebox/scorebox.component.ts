@@ -11,77 +11,47 @@ import { HelperService } from 'src/app/helper/helper.service';
 })
 export class ScoreBoxComponent implements OnInit {
 
-  private countGrammarTestCompleted: number = 0;
-  private countListeminTestCompleted: number = 0;
 
-  private testUser: TestUser = new TestUser();
 
-/*   @Input() countTestsGrammarCompleted : number = 0 ;
-  @Input()  countTestsListeningCompleted: number = 0; */
-  
-  listTests : TestUser[] = [];
+  @Input() testsbyUser: TestUser[] = [];
 
-  countGrammar : number = 0;
-  countListening : number = 0;
+  countGrammar: number = 0;
+  countListening: number = 0;
 
-  constructor(private authservice: AuthService, private helper : HelperService, ) {
-    console.log('chamou score -->d');
-    //this.getCountTests();
- 
+  constructor(private authservice: AuthService, private helper: HelperService, ) {
+    console.log("call constructor -> ScoreBoxComponent");
+
+
   }
- 
+
 
   ngOnInit() {
+    console.log("call ngOnInit -> ScoreBoxComponent");
     this.getTests();
   }
 
 
   //method for get count test
-  getTests(){
+  getTests() {
+    console.log("call getTests -> ScoreBoxComponent");
 
-    this.listTests = this.helper.testsbyUser;
-    for (let index = 0; index < this.listTests.length; index++) {
-        let type = this.listTests[index].type;
-        let status = this.listTests[index].status;
-      if (type == this.helper.typeTestGrammar && status == this.helper.statusTestCompleted){
-          this.countGrammar ++;
+
+    for (let index = 0; index < this.testsbyUser.length; index++) {
+      let type = this.testsbyUser[index].type;
+      let status = this.testsbyUser[index].status;
+      if (type == this.helper.typeTestGrammar && status == this.helper.statusTestCompleted) {
+        this.countGrammar++;
       }
-      if (type == this.helper.typeTestListening && status == this.helper.statusTestCompleted){
-        this.countListening ++;
+      if (type == this.helper.typeTestListening && status == this.helper.statusTestCompleted) {
+        this.countListening++;
       }
     }
   }
 
+  onReloadComponets() {
+    console.log("call onReloadComponets -> ScoreBoxComponent");
+    this.getTests();
+  }
+
 }
 
-
- /*  getCountTests() {
-
-/*     this.testUser.user = this.authservice.userLogged._id;
-    /*    console.log('populado  --> ' + this.testUser.user); 
-    this.testService.testUser(this.testUser)._subscribe(data => {
-      if (data) {
-        console.log(data);
-/*         this.countGrammarTestCompleted = 2;
-        this.countListeminTestCompleted = 10; 
-        for (let index = 0; index < data.length; index++) {
-          let type = data[index].type;
-          let typstatus = data[index].status;
-          if (type == "grammar" && typstatus == "completed") {
-            this.countGrammarTestCompleted = this.countGrammarTestCompleted + 1;
-          }
-          if (type == "listening" && typstatus == "completed") {
-            this.countListeminTestCompleted = this.countListeminTestCompleted + 1
-          }
-
-
-        }
-
-      }
-    },
-      error => {
-        alert('error: ' + error);
-
-      }); 
-
-  } */

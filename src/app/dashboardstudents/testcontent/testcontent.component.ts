@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { TestUser } from 'src/app/model/test';
 import { TestService } from 'src/app/services/test.service';
 import { HelperService } from 'src/app/helper/helper.service';
@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class TestContentComponent implements OnInit {
 
-  /*   @Input() listTestUserGrammar : TestUser[] ;
-    @Input() listTestUserListening : TestUser[] ; */
+  @Input() testsbyUser: TestUser[] = [];
   @Output() testbyId = new EventEmitter();
 
   listGrammar: TestUser[] = [];
@@ -23,17 +22,20 @@ export class TestContentComponent implements OnInit {
   constructor(private router: Router, private testService: TestService, private helper: HelperService) {
 
 
-    console.log("TestContentComponent");
-    this.getListsTest();
+    console.log("call constructor -> TestContentComponent");
 
   }
 
   ngOnInit() {
+    console.log("call ngOnInit -> TestContentComponent");
+    this.getListsTest();
 
   }
 
   getListsTest(): void {
-    let listTests = this.helper.testsbyUser;
+    console.log("call getListsTest -> TestContentComponent");
+/*     let listTests = this.helper.testsbyUser; */
+    let listTests = this.testsbyUser;
     for (let index = 0; index < listTests.length; index++) {
       let type = listTests[index].type;
       let status = listTests[index].status;

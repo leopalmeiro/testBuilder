@@ -3,12 +3,15 @@
     <div class="row questions-row" *ngFor="let question of test.questions  | slice:startItem:endItem">
         <div class="col-md-6">
             <div *ngIf="question.imageType !== ''">
-                image
+                <img class="test-image" src="data:image/{{question.imageType}};base64,{{question.imageBase64}}" alt="{{test.title}}">
             </div>
             <div *ngIf="question.audioType !== ''">
-                audio
+                <audio controls>
+                    <source src="data:audio/{{question.audioType}};base64,{{question.audioBase64}}" />
+                </audio>
+
             </div>
-            <label class="questions-text">  {{question.questionsId}}. {{question.questionText}}</label>
+            <label class="questions-text"> {{question.questionsId}}. {{question.questionText}}</label>
 
             <div *ngFor="let answer of question.answers ; let a = index">
 
@@ -35,6 +38,7 @@
         </div>
         <div class="col-md-6 text-right ">
 
-            <button type="button" class="btn btn-success btn-lg text-right " (click)="saveTestUser()">FINISH THE TEST</button>
+            <button type="button" class="btn btn-success btn-lg text-right " (click)="saveTestUser()">FINISH THE
+                TEST</button>
         </div>
     </div>
