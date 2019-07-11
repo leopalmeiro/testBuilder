@@ -25,26 +25,24 @@
                         <app-score-box [testsbyUser]="testsbyUser"></app-score-box>
                     </ng-container>
 
-                    <!--       <div *ngIf="activedScore"> -->
-                    <!--                 <app-score-box [countTestsGrammarCompleted]="countTestsGrammarCompleted" [countTestsListeningCompleted]="countTestsListeningCompleted"></app-score-box>
- -->
-
-                    <!--                     <app-score-box></app-score-box> -->
-                    <!--                 </div> -->
                 </div>
 
             </div>
 
             <div class="col-md-10">
-                <div class="main-content active-scroll-vertical">
+                <div class="main-content">
                     <ng-container *ngIf="activedTestContent">
 
-                        <!--                         <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content> -->
-                        <app-test-content (testbyId)="onOpenTestById($event)" [testsbyUser]="testsbyUser"></app-test-content>
+                        <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content>
+                        <!--                         <app-test-content (testbyId)="onOpenTestById($event)" [testsbyUser]="testsbyUser"></app-test-content> -->
 
                     </ng-container>
                     <ng-container *ngIf="activedTest">
                         <app-tests (loadDashBoardStudent)="onReloadComponets()" [testId]="testId"></app-tests>
+
+                    </ng-container>
+                    <ng-container *ngIf="activedListTest">
+                        <app-listtests (loadListTest)="onloadListTest($event)"></app-listtests>
 
                     </ng-container>
 

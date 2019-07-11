@@ -17,7 +17,8 @@ export class DashboardStudentsComponent implements OnInit {
   activedTestContent: boolean = false;
   activedTest: boolean = false;
   activedScore: boolean = false;
-
+  activedListTest: boolean = false;
+  
   //new testUserObject
   userTest: TestUser = new TestUser();
 
@@ -94,4 +95,10 @@ export class DashboardStudentsComponent implements OnInit {
 
   }
 
+  onloadListTest($event){
+    this.activedTestContent = false;
+    this.activedTest = false;
+    this.activedScore = false;
+    this.activedListTest = true;
+  }
 }

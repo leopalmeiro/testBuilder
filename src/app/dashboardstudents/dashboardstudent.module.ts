@@ -13,6 +13,7 @@ import { HelperService } from '../helper/helper.service';
 import { DashboardStudentRouDatingModule } from './dashboardstudent.routing.module';
 import { TestContentComponent } from './testcontent/testcontent.component';
 import { AuthService } from '../login/auth.service';
+import { ListtestsComponent } from './listtests/listtests.component';
 
 @NgModule
 ({
@@ -20,7 +21,8 @@ import { AuthService } from '../login/auth.service';
         DashboardStudentsComponent,
         ScoreBoxComponent,
         TestContentComponent,
-        TestsComponent
+        TestsComponent,
+        ListtestsComponent
   
     ],
     exports: [

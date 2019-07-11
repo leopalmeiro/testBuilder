@@ -9,12 +9,13 @@ import { ScoreBoxComponent } from './scorebox/scorebox.component';
 
 
 const dashboardStudentRoutes: Routes = [
-    { path: '', component: DashboardStudentsComponent , children :[
-        { path: 'listTestsUsers', component: TestContentComponent},
-        { path: 'listScoreBoxUsers', component: ScoreBoxComponent    },
-        { path: 'testStudent/:id', component: TestsComponent  }
+    {path: '', component: DashboardStudentsComponent, children: [
+            { path: 'listTestsUsers', component: TestContentComponent },
+            { path: 'listScoreBoxUsers', component: ScoreBoxComponent },
+            { path: 'testStudent/:id', component: TestsComponent }
 
-    ]}
+        ]
+    }
 
 
 
