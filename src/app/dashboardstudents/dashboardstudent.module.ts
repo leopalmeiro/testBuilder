@@ -10,10 +10,11 @@ import { TestsComponent } from './tests/tests.component';
 
 import { TestService } from '../services/test.service';
 import { HelperService } from '../helper/helper.service';
-import { DashboardStudentRouDatingModule } from './dashboardstudent.routing.module';
+
 import { TestContentComponent } from './testcontent/testcontent.component';
 import { AuthService } from '../login/auth.service';
 import { ListtestsComponent } from './listtests/listtests.component';
+import { DashboardStudentRoutingModule } from './dashboardstudent.routing.module';
 
 @NgModule
 ({
@@ -32,7 +33,7 @@ import { ListtestsComponent } from './listtests/listtests.component';
     imports: [
         CommonModule,
         FormsModule,
-        DashboardStudentRouDatingModule
+        DashboardStudentRoutingModule
 
     ],
     providers: [

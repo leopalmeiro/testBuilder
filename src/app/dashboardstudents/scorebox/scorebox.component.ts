@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/login/auth.service';
-import { TestService } from 'src/app/services/test.service';
 import { TestUser } from 'src/app/model/test';
 import { HelperService } from 'src/app/helper/helper.service';
-import { EventEmitter } from 'events';
+
 
 @Component({
   selector: 'app-score-box',
@@ -15,13 +14,14 @@ export class ScoreBoxComponent implements OnInit {
 
 
   @Input() testsbyUser: TestUser[] = [];
+  @Output() loadListTest = new EventEmitter();
 
   countGrammar: number = 0;
   countListening: number = 0;
 
-  @Output() loadListTest = new EventEmitter();
 
-  constructor(private authservice: AuthService, private helper: HelperService, ) {
+
+  constructor(private authservice: AuthService, private helper: HelperService ) {
     console.log("call constructor -> ScoreBoxComponent");
 
 
@@ -51,13 +51,10 @@ export class ScoreBoxComponent implements OnInit {
     }
   }
 
-  onReloadComponets() {
-    console.log("call onReloadComponets -> ScoreBoxComponent");
-    this.getTests();
-  }
 
-  OnClickOpenListTest(testId){
-    this.loadListTest.emit(testId);
+
+  OnClickOpenListTest(type){
+    this.loadListTest.emit(type);
   }
 
 

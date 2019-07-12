@@ -30,15 +30,15 @@
     <div class="row">
         <div class="col-md-6">
 
-            <button type="button" [disabled]="!showPreviewButton" class="btn btn-primary btn-lg" (click)="onChangePage('preview' , startItem , endItem )">PREVIEW</button>
+            <button type="button" [disabled]="!showPreviewButton" class="btn btn-primary btn-lg btn-square" (click)="onChangePage('preview' , startItem , endItem )">PREVIEW</button>
 
-            <button type="button" [disabled]="!showNextButton" class="btn btn-primary btn-lg " (click)="onChangePage('next' , startItem , endItem )">NEXT</button>
+            <button type="button" [disabled]="!showNextButton" class="btn btn-primary btn-lg btn-square " (click)="onChangePage('next' , startItem , endItem )">NEXT</button>
 
 
         </div>
         <div class="col-md-6 text-right ">
 
-            <button type="button" class="btn btn-success btn-lg text-right " (click)="saveTestUser()">FINISH THE
+            <button type="button" class="btn btn-success btn-lg btn-square text-right " (click)="saveTestUser()">FINISH THE
                 TEST</button>
         </div>
     </div>

@@ -4,16 +4,20 @@
 </div>
 
 <p class="text-title-score-box">
-    GRAMMAR<br /> TESTS
-    <br /> COMPLETED
+    GRAMMAR
+    <br/> TESTS
+    <br/> COMPLETED
 </p>
 
-<div>
-    <a href="OnClickOpenListTest(countGrammar)"> {{ countGrammar }} </a>
+<div class="link-score" (click)="OnClickOpenListTest('grammar')">
+    <label class="score-result">{{ countGrammar }}</label>
 
 </div>
 
 <p class="text-title-score-box">
-    LISTENING<br /> TESTS <br> COMPLETED
+    LISTENING<br/> TESTS <br/> COMPLETED
 </p>
-<label for="" class="score-result">{{ countListening }}</label>
+<div class="link-score" (click)="OnClickOpenListTest('listening')">
+    <label class="score-result">{{ countListening }}</label>
+
+</div>

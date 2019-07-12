@@ -6,7 +6,7 @@
             <header>
                 <nav>
                     <img src="assets/images/logo.png" alt="logo" class="logo-top">
-                    <label for="" class="menu-title">M.U.A English Center</label>
+                    <label for="" class="menu-title">{{schoolName}}</label>
                     <div class="button-logout">
                         <button type="button" class="btn btn-outline-light" (click)="logout()">Logout</button>
                     </div>
@@ -22,7 +22,7 @@
             <div class="col-md-2">
                 <div class="score-box">
                     <ng-container *ngIf="activedScore">
-                        <app-score-box [testsbyUser]="testsbyUser"></app-score-box>
+                        <app-score-box (loadListTest)="onloadListTest($event)" [testsbyUser]="testsbyUser"></app-score-box>
                     </ng-container>
 
                 </div>
@@ -34,7 +34,6 @@
                     <ng-container *ngIf="activedTestContent">
 
                         <app-test-content (testbyId)="onOpenTestById($event)"></app-test-content>
-                        <!--                         <app-test-content (testbyId)="onOpenTestById($event)" [testsbyUser]="testsbyUser"></app-test-content> -->
 
                     </ng-container>
                     <ng-container *ngIf="activedTest">
@@ -42,8 +41,8 @@
 
                     </ng-container>
                     <ng-container *ngIf="activedListTest">
-                        <app-listtests (loadListTest)="onloadListTest($event)"></app-listtests>
 
+                        <app-listtests (closeListTest)="onReloadComponets()" [typeList]="setTypeList"></app-listtests>
                     </ng-container>
 
                 </div>

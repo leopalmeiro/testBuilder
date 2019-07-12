@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TestUser } from 'src/app/model/test';
 import { TestService } from 'src/app/services/test.service';
 import { HelperService } from 'src/app/helper/helper.service';
+import { AuthService } from 'src/app/login/auth.service';
 
 @Component({
   selector: 'app-listtests',
@@ -12,27 +13,34 @@ export class ListtestsComponent implements OnInit {
 
   listTest : TestUser[] = [];
   test : TestUser = new TestUser();
+  @Input() typeList : string;
+  @Output() closeListTest = new EventEmitter
 
-  constructor(private testService : TestService, private helpService: HelperService) { }
+  constructor(private testService : TestService, private helpService: HelperService, private authService : AuthService) {
+    console.log("call constructor -> ListtestsComponent");
+   }
 
   ngOnInit() {
-
+    console.log("call ngOnInit -> ListtestsComponent");
+    this.loadListTest();
   }
   
   /**
   * @name loadListTest
-  * @description This method for check if has some questions without be answered
-  * @input  startItem : number , endItem : number
-  * @returns errors[]
+  * @description This method receive parameters of emmiter
+  * @input  data: text
+  * @returns void
   */
-  loadListTest(data){
+  loadListTest(){
+    
     console.log("call loadListTest -> ListtestsComponent");
-    if(data === this.helpService.typeTestGrammar){
+    this.test.user = this.authService.currentUserValue._id;
+    if(this.typeList === this.helpService.typeTestGrammar){
       this.test.type = this.helpService.typeTestGrammar;
       this.getListTestsByType(this.test);
 
     }
-    if(data === this.helpService.typeTestListening){
+    if(this.typeList === this.helpService.typeTestListening){
       this.test.type = this.helpService.typeTestListening;
       this.getListTestsByType(this.test);
 
@@ -40,6 +48,13 @@ export class ListtestsComponent implements OnInit {
 
 
   }
+
+    /**
+  * @name getListTestsByType
+  * @description This for find list of User tests by type
+  * @input  test: TestUser
+  * @returns listTest
+  */
 
   getListTestsByType(test : TestUser){
 
@@ -57,5 +72,11 @@ export class ListtestsComponent implements OnInit {
         alert('error: ' + error);
 
       });
+  }
+
+
+
+  onClickClose(){
+    this.closeListTest.emit();
   }
 }

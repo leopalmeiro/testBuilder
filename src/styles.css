@@ -12,7 +12,7 @@ app-root {
 }
 
 .btn-square {
-    border-radius: 0px;
+    border-radius: 5px;
 }
 
 .active-scroll-vertical {
@@ -55,6 +55,7 @@ app-root {
     word-spacing: 2px;
     text-align: center;
     letter-spacing: 1px;
+    padding-top: 10px;
 }
 
 .title-content:after {

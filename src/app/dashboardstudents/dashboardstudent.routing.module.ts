@@ -9,12 +9,14 @@ import { ScoreBoxComponent } from './scorebox/scorebox.component';
 
 
 const dashboardStudentRoutes: Routes = [
-    {path: '', component: DashboardStudentsComponent, children: [
-            { path: 'listTestsUsers', component: TestContentComponent },
-            { path: 'listScoreBoxUsers', component: ScoreBoxComponent },
-            { path: 'testStudent/:id', component: TestsComponent }
-
-        ]
+    {path: '', component: DashboardStudentsComponent
+/*     , 
+    children: [
+          { path: 'openTestPrint/:id', component: DashboardStudentsComponent } */
+/*             { path: 'listScoreBoxUsers', component: ScoreBoxComponent },
+            { path: 'testStudent/:id', component: TestsComponent } */
+ 
+        //]
     }
 
 
@@ -27,4 +29,4 @@ const dashboardStudentRoutes: Routes = [
     exports: [RouterModule]
 })
 
-export class DashboardStudentRouDatingModule { }
+export class DashboardStudentRoutingModule { }

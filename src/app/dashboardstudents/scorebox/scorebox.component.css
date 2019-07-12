@@ -20,3 +20,13 @@
 .score-result {
     font-size: 40px;
 }
+
+.link-score:hover {
+    color: #ffffff;
+    background-color: #3498db;
+}
+
+.link-score:active {
+    color: #ffffff;
+    background-color: #2673a7;
+}

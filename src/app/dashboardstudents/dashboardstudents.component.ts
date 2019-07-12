@@ -19,6 +19,7 @@ export class DashboardStudentsComponent implements OnInit {
   activedScore: boolean = false;
   activedListTest: boolean = false;
   
+  schoolName : string = this.helper.schoolName;
   //new testUserObject
   userTest: TestUser = new TestUser();
 
@@ -29,7 +30,10 @@ export class DashboardStudentsComponent implements OnInit {
   countTestsGrammarCompleted: number = 0;
   countTestsListeningCompleted: number = 0;
 
+  //input for use in anoter components
   testId: number = 0;
+  setTypeList:string;
+
 
 
 
@@ -64,6 +68,7 @@ export class DashboardStudentsComponent implements OnInit {
         this.activedScore = true;
         this.activedTestContent = true;
         this.activedTest = false;
+        this.activedListTest = false;
 
       }
 
@@ -91,6 +96,7 @@ export class DashboardStudentsComponent implements OnInit {
     this.activedTestContent = false;
     this.activedTest = false;
     this.activedScore = false;
+    this.activedListTest= false;
     this.getTestsByUser();
 
   }
@@ -98,7 +104,9 @@ export class DashboardStudentsComponent implements OnInit {
   onloadListTest($event){
     this.activedTestContent = false;
     this.activedTest = false;
-    this.activedScore = false;
+    this.activedScore = true;
     this.activedListTest = true;
+    this.setTypeList = $event;
+    
   }
 }

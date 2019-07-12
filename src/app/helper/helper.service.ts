@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class HelperService {
 
 
-
+  //school Name
+  public schoolName :string = "M.U.A English Center";
   //uri api
   public apiUri: string = 'http://localhost:4000';
 

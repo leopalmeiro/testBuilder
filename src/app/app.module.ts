@@ -13,7 +13,11 @@ import { AuthService } from './login/auth.service';
 import { HelperService } from './helper/helper.service';
 import { TestService } from './services/test.service';
 import { DashboardStudentsModule } from './dashboardstudents/dashboardstudent.module';
-import { DashboardStudentRouDatingModule } from './dashboardstudents/dashboardstudent.routing.module';
+
+import { PrintModule } from './print/print.module';
+import { DashboardStudentRoutingModule } from './dashboardstudents/dashboardstudent.routing.module';
+import { PrintRoutingModule } from './print/print.routing.module';
+
 
 
 
@@ -33,9 +37,14 @@ import { DashboardStudentRouDatingModule } from './dashboardstudents/dashboardst
     HttpClientModule,
     ReactiveFormsModule,
     DashboardStudentsModule,
+    PrintModule,
 
     AppRoutingModule,
-    DashboardStudentRouDatingModule
+    DashboardStudentRoutingModule,
+    PrintRoutingModule
+
+
+
   ],
   providers: [
     AuthService,

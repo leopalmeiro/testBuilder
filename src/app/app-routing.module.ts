@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:  '', redirectTo:  'login', pathMatch:  'full'},
   {path: 'login', component: LoginComponent },
 
-  {path: 'dashboardstudents', loadChildren: () => import('./dashboardstudents/dashboardstudent.module').then(d => d.DashboardStudentsModule)}
+  {path: 'dashboardstudents', loadChildren: () => import('./dashboardstudents/dashboardstudent.module').then(d => d.DashboardStudentsModule)},
+  {path: 'print', loadChildren: () => import('./print/print.module').then(p => p.PrintModule)}
 
 ];
 
