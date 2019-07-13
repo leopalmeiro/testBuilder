@@ -38,6 +38,7 @@ export class HelperService {
   //test request params
   public idReqParam: string = '_id';
   public testUser: string = 'testUser';
+  public idHttpReqParam: string = 'id';
 
   //header JSON
   public headerName: string = 'Accept';

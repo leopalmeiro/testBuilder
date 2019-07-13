@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HelperService } from 'src/app/helper/helper.service';
 import { TestUser } from 'src/app/model/test';
 import { TestService } from 'src/app/services/test.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/login/auth.service';
 
 @Component({
   selector: 'app-printtest',
@@ -12,24 +13,40 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PrinttestComponent implements OnInit {
 
   schoolName: string = this.helper.schoolName;
-  test : TestUser;
+  test: TestUser;
 
-  constructor(private helper: HelperService, private testService: TestService,  private route: ActivatedRoute,
-    private router: Router) {
-      console.log("call constructor -> PrinttestComponent");
-     }
+  constructor(private helper: HelperService, private testService: TestService, private authservice: AuthService, private route: ActivatedRoute,
+    private router: ActivatedRoute) {
+    console.log("call constructor -> PrinttestComponent");
+  }
 
   ngOnInit() {
     console.log("call ngOnInit -> PrinttestComponent");
-    //this.getTestByid();
+    this.getTestByid();
   }
 
 
-/* getTestByid(){
-  let id = this.route.snapshot.queryParams.get('id');
-  this.testService.getTestById(id)
-    .subscribe(data => this.test = data);
-} */
-  
-}
+  /**
+  * @name getTestByid
+  * @description This for find test by test ID
+  * @returns test
+  */
+  getTestByid() {
+    console.log("call getTestByid -> PrinttestComponent");
 
+    this.route.paramMap.subscribe(params => {
+      let id = params.get(this.helper.idHttpReqParam);
+      this.testService.getTestById(id).subscribe(data => {
+        if (data) {
+          this.test = data;
+          this.testService.scoreInformationOfTestes(this.test);
+        }
+      },
+        error => {
+          alert('error: ' + error);
+
+        });
+    });
+
+  }
+}

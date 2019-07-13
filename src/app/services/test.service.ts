@@ -55,6 +55,26 @@ export class TestService {
 
   }
 
+  public scoreInformationOfTestes(testUser: TestUser){
+    let test = testUser;
+    test.totQuestions = testUser.questions.length.toString();
+
+    let countQuestionsCorrect = 0;
+
+    for (let q = 0; q < testUser.questions.length; q++) {
+
+      for (let a = 0; a < testUser.questions[q].answers.length; a++) {
+        if(testUser.questions[q].answers[a].isSelected && testUser.questions[q].answers[a].isCorrect){
+          countQuestionsCorrect ++
+        }
+        
+      }
+      
+    }
+    test.totQuestiosCorrect = countQuestionsCorrect.toString();
+    return test;
+  }
+
 
 
 }

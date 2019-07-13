@@ -54,7 +54,13 @@ export class ScoreBoxComponent implements OnInit {
 
 
   OnClickOpenListTest(type){
-    this.loadListTest.emit(type);
+    if(this.countGrammar > 0 && type === this.helper.typeTestGrammar) {
+      this.loadListTest.emit(type);
+    }
+    if(this.countListening > 0 && type === this.helper.typeTestListening ){
+      this.loadListTest.emit(type);
+    }
+
   }
 
 

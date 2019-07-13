@@ -68,3 +68,13 @@ app-root {
     margin-top: 10px;
     border-radius: 50px;
 }
+
+.test-image {
+    width: 400px;
+    height: 400px;
+}
+
+.test-image-print {
+    width: 200px;
+    height: 200px;
+}

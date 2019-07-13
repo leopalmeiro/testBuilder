@@ -24,16 +24,18 @@
 
                     <tr *ngFor="let test of listTest">
                         <td scope="row"> {{test._id}}</td>
-                        <td>{{test.title}}</td>
-                        <td>{{test.subtitle}}</td>
-                        <td>{{test.type}}</td>
+                        <td class="text-capitalize">{{test.title}}</td>
+                        <td class="text-capitalize">{{test.subtitle}}</td>
+                        <td class="text-capitalize">{{test.type}}</td>
                         <!--                             <td>1</td>
                             <td>2</td>
                             <td>3</td>
                             <td>3</td> -->
-                        <td class="align-middle">
+                        <td class="text-center">
 
-                            <a href="print/printTestCompleted/{{test._id}}" target="_blank"> <img src="../../../assets/images/print.svg" alt="Print Test" class="print-icon"></a>
+                            <!--                             <a (click)="openPrintTest()" target="_blank"> <img src="../../../assets/images/print.svg" alt="Print Test" class="print-icon"></a> -->
+                            <a [routerLink]="['/print/printTestCompleted/',test._id]" routerLinkActive="router-link-active" target="_blank"> <img src="../../../assets/images/print.svg" alt="Print Test" class="print-icon grow"></a>
+
                         </td>
                     </tr>
 

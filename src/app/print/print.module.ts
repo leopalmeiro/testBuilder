@@ -6,6 +6,8 @@ import { HelperService } from '../helper/helper.service';
 import { TestService } from '../services/test.service';
 import { PrinttestComponent } from './printtest/printtest.component';
 import { PrintRoutingModule } from './print.routing.module';
+import { PrintComponent } from './print.component';
+
 
 
 
@@ -13,9 +15,8 @@ import { PrintRoutingModule } from './print.routing.module';
 @NgModule
 ({
     declarations: [
-
-  
-    PrinttestComponent
+    PrinttestComponent,
+    PrintComponent
   ],
     exports: [
 
@@ -24,6 +25,7 @@ import { PrintRoutingModule } from './print.routing.module';
     imports: [
         CommonModule,
         FormsModule,
+
         PrintRoutingModule
         
 

@@ -10,5 +10,8 @@ export class TestUser{
     imageType : string;
     imageBase64 : string;
     questions : Question [];
+    totQuestions: string;
+    totQuestiosCorrect:string;
+
 }
 

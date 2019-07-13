@@ -3,6 +3,7 @@ import { TestUser } from 'src/app/model/test';
 import { TestService } from 'src/app/services/test.service';
 import { HelperService } from 'src/app/helper/helper.service';
 import { AuthService } from 'src/app/login/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listtests',
@@ -16,7 +17,7 @@ export class ListtestsComponent implements OnInit {
   @Input() typeList : string;
   @Output() closeListTest = new EventEmitter
 
-  constructor(private testService : TestService, private helpService: HelperService, private authService : AuthService) {
+  constructor(private testService : TestService, private helpService: HelperService, private authService : AuthService, private router: Router) {
     console.log("call constructor -> ListtestsComponent");
    }
 
@@ -78,5 +79,10 @@ export class ListtestsComponent implements OnInit {
 
   onClickClose(){
     this.closeListTest.emit();
+  }
+
+  openPrintTest(){
+    console.log("call method openPrintTest -> ListtestsComponent");
+    window.open('http://localhost:4200/print/printTestCompleted/1');
   }
 }
