@@ -1,35 +1,30 @@
 .questions-radio-text,
 .questions-text,
-.input-radio-item {
+.input-radio-item,
+.input-radio-item-selected {
     font-family: 'Lato', 'sans-serif';
     font-size: 20px;
     letter-spacing: 2px;
 }
 
-.input-radio-item {
+.input-radio-item,
+.input-radio-item-selected {
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 20vw;
+    border-radius: 10px;
 }
 
 .input-radio-item:hover {
     background-color: #3498db4b;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px
 }
 
 .input-radio-item:active {
     background-color: #3498dbf5;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px
 }
 
 .input-radio-item-selected {
     background-color: #0d19c04b;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px
 }
 
 input[type="radio"] {

@@ -27,9 +27,9 @@ testRoutes.route('/testUser/').get(function(req, res) {
 
 //method for find test by ID
 testRoutes.route('/testUserById/').get(function(req, res) {
-    console.log(req.query);
+
     let test = new TestsUser(req.query);
-    console.log(test);
+
     TestsUser.findById(test._id,
         function(err, tests) {
             if (err) {
@@ -43,9 +43,6 @@ testRoutes.route('/testUserById/').get(function(req, res) {
 
 //method for update test by ID
 testRoutes.route('/updateTestByID/').put(function(req, res) {
-    /*     console.log("request body" + JSON.stringify(req.body));
-        console.log("request params" + JSON.stringify(req.params));
-        console.log("request query" + JSON.stringify(req.query)); */
 
     let test = new TestsUser(req.body);
 

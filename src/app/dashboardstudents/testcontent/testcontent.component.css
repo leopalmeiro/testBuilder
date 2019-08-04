@@ -11,7 +11,7 @@
 .grammar-test-itens-container {
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 5px;
+    /*     margin-top: 10px; */
     margin-bottom: 5px;
 }
 
@@ -46,4 +46,12 @@
 
 .stitle-icon-test {
     font-size: 10px;
+}
+
+.btn-flat {
+    border-radius: 0 !important;
+}
+
+.col-box {
+    margin-top: 10px;
 }

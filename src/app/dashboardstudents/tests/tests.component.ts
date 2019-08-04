@@ -19,7 +19,8 @@ export class TestsComponent implements OnInit {
 
 
 
-  test: TestUser;
+  test: TestUser = new TestUser();
+
 
   //buttons pagination
   showNextButton: boolean = true;
@@ -68,9 +69,13 @@ export class TestsComponent implements OnInit {
         //settind index for question and answer
         for (let q = 0; q < this.test.questions.length; q++) {
           this.test.questions[q].questionIndex = q;
+
           for (let a = 0; a < this.test.questions[q].answers.length; a++) {
             this.test.questions[q].answers[a].answerIndex = a;
 
+          }
+          if(this.test.questions[q].isAnswered){
+            this.test.questions[q].isEnable = true;
           }
 
         }
@@ -186,7 +191,7 @@ export class TestsComponent implements OnInit {
 
     for (let index = startItem; index < endItem; index++) {
       if (!this.test.questions[index].isAnswered) {
-        let message = "<p> Question: " + this.test.questions[index].questionsId + " needs to be answered.</p>"
+        let message = "Question: " + this.test.questions[index].questionsId + " needs to be answered."
         error.push(message);
       }
     }
@@ -196,11 +201,24 @@ export class TestsComponent implements OnInit {
     }
 
   }
-
+  /**
+  * @name saveTestUser():void
+  * @description This method for save test
+  * 
+  */
   saveTestUser() {
 
     //sett test completed
-    this.test.status = this.helper.statusTestCompleted;
+    let hasError = this.checkQuestionIsAnswered(0, this.test.questions.length);
+    if(hasError.length> 0){
+
+      this.test.status = this.helper.statusTestIncompete;
+      
+    }else{
+      this.test.status = this.helper.statusTestCompleted;
+    }
+  
+
     this.testService.updateTestByID(this.test).subscribe(data => {
 
       if (data) {
@@ -211,7 +229,6 @@ export class TestsComponent implements OnInit {
 
     });
   }
-
 
 
 }

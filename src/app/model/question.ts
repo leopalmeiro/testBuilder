@@ -10,6 +10,7 @@ export class Question {
     audioBase64: string;
     isAnswered: boolean;
     questionIndex: number;
+    isEnable: boolean;
     answers : Answer [];
 
 

@@ -16,6 +16,7 @@ import { DashboardStudentsModule } from './dashboardstudents/dashboardstudent.mo
 import { PrintModule } from './print/print.module';
 import { DashboardStudentRoutingModule } from './dashboardstudents/dashboardstudent.routing.module';
 import { PrintRoutingModule } from './print/print.routing.module';
+import { ModalModule } from './modal/modal.module';
 
 
 
@@ -25,9 +26,6 @@ import { PrintRoutingModule } from './print/print.routing.module';
     AppComponent,
     LoginComponent,
 
-/*     ScoreBoxComponent,
-    TestContentComponent,
-    TestsComponent, */
 
   ],
   imports: [
@@ -37,7 +35,7 @@ import { PrintRoutingModule } from './print/print.routing.module';
     ReactiveFormsModule,
     DashboardStudentsModule,
     PrintModule,
-
+    ModalModule,
     AppRoutingModule,
     DashboardStudentRoutingModule,
     PrintRoutingModule

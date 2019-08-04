@@ -1,43 +1,49 @@
 <h2 class="title-content">PLEASE, SELECT YOUR TEST</h2>
-<div class="grammar-test-section container-fluid">
+<div class=" container-fluid container-size  active-scroll-vertical">
     <label for="" class="title-section-test">Grammar Test</label>
     <div class="row grammar-test-itens-container">
         <div *ngFor="let grammarTest of listGrammar">
             <!-- item 01 -->
-            <div class="col-md-2 grow">
+            <div class="col-md-2 col-box grow">
                 <div class="icon-test-container">
                     <div class="img-icon-test-container">
                         <!--                         <img class="icon-test-image" [src]="'data:image/jpg;base64,'+imagePath" alt="Test 01"> -->
                         <img class="icon-test-image" src="data:image/{{grammarTest.imageType}};base64,{{grammarTest.imageBase64}}" alt="grammarTest.title">
                     </div>
-                    <label for="" class="title-icon-test">{{grammarTest.title}}</label>
-                    <label for="" class="stitle-icon-test">{{grammarTest.subtitle}}</label>
-                    <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block btn-square" (click)="openTestById(grammarTest._id)">ACCESS</button>
+                    <label for="" class="title-icon-test text-capitalize">{{grammarTest.title}}</label>
+                    <label for="" class="stitle-icon-test text-capitalize">{{grammarTest.subtitle}}</label>
+                    <button type="button" name="" id="" class="btn btn-flat btn-primary btn-lg btn-block" (click)="openTestById(grammarTest._id)">ACCESS</button>
                 </div>
 
             </div>
 
         </div>
     </div>
-</div>
-<div class="grammar-test-section container-fluid">
+    <br>
     <label for="" class="title-section-test">Listening Test</label>
     <div class="row grammar-test-itens-container">
+
         <div *ngFor="let listeningTest of listListening">
             <!-- item 01 -->
-            <div class="col-md-2 grow">
+            <div class="col-md-2 col-box grow">
                 <div class="icon-test-container">
                     <div class="img-icon-test-container">
                         <!--                         <img class="icon-test-image" src="assets/images/image-icon-test.png" alt="Test 01"> -->
                         <img class="icon-test-image" src="data:image/{{listeningTest.imageType}};base64,{{listeningTest.imageBase64}}" alt="listeningTest.title">
                     </div>
-                    <label class="title-icon-test">{{listeningTest.title}}</label>
-                    <label class="stitle-icon-test">{{listeningTest.subtitle}}</label>
-                    <button type="button" class="btn btn-primary btn-lg btn-block btn-square" (click)="openTestById(listeningTest._id)">ACCESS</button>
+                    <label class="title-icon-test text-capitalize">{{listeningTest.title}}</label>
+                    <label class="stitle-icon-test text-capitalize">{{listeningTest.subtitle}}</label>
+                    <button type="button" [ngClass]="
+                        {
+                            'btn-primary':listeningTest.status === 'available',
+                            'btn-warning':listeningTest.status === 'incomplete'
+                        
+                        }" class="btn btn-flat  btn-lg btn-block" (click)="openTestById(listeningTest._id)">ACCESS</button>
                 </div>
 
             </div>
 
         </div>
     </div>
+
 </div>

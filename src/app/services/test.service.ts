@@ -10,7 +10,7 @@ import { TestUser } from '../model/test';
 })
 export class TestService {
 
-  httpHeaders =  new HttpHeaders().set(this.helper.headerName, this.helper.headerType);
+  httpHeaders = new HttpHeaders().set(this.helper.headerName, this.helper.headerType);
 
   constructor(private http: HttpClient, private helper: HelperService, private authService: AuthService) { }
 
@@ -19,8 +19,15 @@ export class TestService {
 
     let httpHeaders = new HttpHeaders()
       .set(this.helper.headerName, this.helper.headerType);
-    let params = new HttpParams()
-      .set(this.helper.userReqParam, testUser.user);
+    let params = new HttpParams();
+    params = params.append(this.helper.userReqParam, testUser.user);
+    if (testUser.type !== undefined ) {
+      params = params.append(this.helper.typeReqParam, testUser.type);
+    }
+    if (testUser.status !== undefined ) {
+      params = params.append(this.helper.statusReqParam, testUser.status);
+    }
+
 
 
     console.log('paramnssss --> ' + params.toString());
@@ -29,7 +36,7 @@ export class TestService {
     return this.http.get<TestUser[]>(this.helper.apiUriTestsTestUser, {
       headers: httpHeaders,
       params: params
-    })
+    });
   }
 
   //method for find test byID
@@ -55,7 +62,7 @@ export class TestService {
 
   }
 
-  public scoreInformationOfTestes(testUser: TestUser){
+  public scoreInformationOfTestes(testUser: TestUser) {
     let test = testUser;
     test.totQuestions = testUser.questions.length.toString();
 
@@ -64,12 +71,12 @@ export class TestService {
     for (let q = 0; q < testUser.questions.length; q++) {
 
       for (let a = 0; a < testUser.questions[q].answers.length; a++) {
-        if(testUser.questions[q].answers[a].isSelected && testUser.questions[q].answers[a].isCorrect){
-          countQuestionsCorrect ++
+        if (testUser.questions[q].answers[a].isSelected && testUser.questions[q].answers[a].isCorrect) {
+          countQuestionsCorrect++
         }
-        
+
       }
-      
+
     }
     test.totQuestiosCorrect = countQuestionsCorrect.toString();
     return test;

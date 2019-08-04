@@ -36,6 +36,7 @@ export class ListtestsComponent implements OnInit {
     
     console.log("call loadListTest -> ListtestsComponent");
     this.test.user = this.authService.currentUserValue._id;
+    this.test.status = this.helpService.statusTestCompleted;
     if(this.typeList === this.helpService.typeTestGrammar){
       this.test.type = this.helpService.typeTestGrammar;
       this.getListTestsByType(this.test);

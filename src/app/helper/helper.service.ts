@@ -35,10 +35,14 @@ export class HelperService {
   public userReqParam: string = 'user';
   public passReqParam: string = 'pass';
 
+  
+
   //test request params
   public idReqParam: string = '_id';
   public testUser: string = 'testUser';
   public idHttpReqParam: string = 'id';
+  public typeReqParam: string = 'type';
+  public statusReqParam: string = 'status';
 
   //header JSON
   public headerName: string = 'Accept';
@@ -49,6 +53,7 @@ export class HelperService {
   public typeTestListening: string = 'listening';
   public statusTestCompleted: string = 'completed';
   public statusTestAvailable: string = 'available';
+  public statusTestIncompete: string = 'incomplete';
 
   //global information about tests
 /*   public testsbyUser: TestUser[] = []; */
