@@ -59,13 +59,18 @@ export class ListtestsComponent implements OnInit {
   */
 
   getListTestsByType(test : TestUser){
-
+   
     this.testService.testUser(test).subscribe(data => {
 
       if (data) {
+        for (let index = 0; index < data.length; index++) {
+          test = data[index];
+          if(test.status === this.helpService.statusTestCompleted){
 
-
-        this.listTest = data;
+            this.listTest.push(test);
+          }
+            
+        }
 
       }
 
@@ -82,8 +87,8 @@ export class ListtestsComponent implements OnInit {
     this.closeListTest.emit();
   }
 
-  openPrintTest(){
+/*   openPrintTest(){
     console.log("call method openPrintTest -> ListtestsComponent");
     window.open('http://localhost:4200/print/printTestCompleted/1');
-  }
+  } */
 }

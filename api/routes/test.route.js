@@ -14,7 +14,7 @@ testRoutes.route('/testUser/').get(function(req, res) {
     console.log(req.query);
     let test = new TestsUser(req.query);
     console.log(test);
-    TestsUser.find(test,
+    TestsUser.find({user: test.user}, 
         function(err, tests) {
             if (err) {
                 console.log(err);

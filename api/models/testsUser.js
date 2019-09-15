@@ -27,14 +27,13 @@ let testsUser = new Schema({
     imageBase64: {
         type: String
     },
-    questions: {
+    questions: [{
         questionsId: {
             type: Number
         },
         questionText: {
             type: String
         },
-
 
         order: {
             type: Number
@@ -55,7 +54,7 @@ let testsUser = new Schema({
         isAnswered: {
             type: Boolean
         },
-        answers: {
+        answers: [{
             answerId: {
                 type: Number
             },
@@ -70,9 +69,9 @@ let testsUser = new Schema({
                 type: Boolean
             }
 
-        },
+        }],
 
-    },
+    }],
 }, {
     collection: 'testsUser'
 });
