@@ -12,7 +12,12 @@
                     </div>
                     <label for="" class="title-icon-test text-capitalize">{{grammarTest.title}}</label>
                     <label for="" class="stitle-icon-test text-capitalize">{{grammarTest.subtitle}}</label>
-                    <button type="button" name="" id="" class="btn btn-flat btn-primary btn-lg btn-block" (click)="openTestById(grammarTest._id)">ACCESS</button>
+                    <button type="button" [ngClass]="
+                    {
+                        'btn-primary':grammarTest.status === 'available',
+                        'btn-warning':grammarTest.status === 'incomplete'
+                    
+                    }" class="btn btn-flat  btn-lg btn-block"  (click)="openTestById(grammarTest._id)">ACCESS</button>
                 </div>
 
             </div>
