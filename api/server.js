@@ -28,7 +28,7 @@ app.use('/login', loginRoute);
 app.use('/test', testRoute);
 
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8081;
 
 const server = app.listen(port, function() {
     console.log('Listening on port ' + port);

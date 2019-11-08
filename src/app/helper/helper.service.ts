@@ -11,7 +11,7 @@ export class HelperService {
   //school Name
   public schoolName :string = "M.U.A English Center";
   //uri api
-  public apiUri: string = 'http://localhost:4000';
+  public apiUri: string = 'http://localhost:8081';
 
   /* Login Section */
   //call login methods Api
